@@ -1,7 +1,7 @@
 // TodoForm.js
 import React, { useState } from "react";
 
-const TodoForm = ({ addTasks }) => {
+const TodoForm = ({ addTodo }) => {
   const [todoText, setTodoText] = useState("");
 
   const handleChange = (e) => {
@@ -10,7 +10,7 @@ const TodoForm = ({ addTasks }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    addTasks(todoText); // Update the parent state with the new todo
+    addTodo(todoText); // Update the parent state with the new todo
     setTodoText(""); // Clear the input field after submission
   };
 
