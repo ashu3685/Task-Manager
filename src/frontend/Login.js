@@ -13,11 +13,10 @@ const Login = () => {
 
   const [error, setError] = useState('');
 
- 
   useEffect(() => {
     const checkTokenValidity = async () => {
       try {
-        const response = await fetch('http://localhost:8000/secured', {
+        const response = await fetch(`https://w3villa-1mal.onrender.com/protected`, {
           method: 'GET',
           credentials: 'include',
         });
@@ -42,7 +41,7 @@ const Login = () => {
     setError(''); // Clear previous error message
 
     try {
-      const response = await fetch('http://localhost:8000/login', {
+      const response = await fetch(`https://w3villa-1mal.onrender.com/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -55,14 +54,15 @@ const Login = () => {
         throw new Error('Login failed');
       }
 
-    //   const data = await response.json();
       alert('Login successful!');
       navigate("/home");
-
-      
     } catch (error) {
       setError(error.message);
     }
+  };
+
+  const handleRegisterClick = () => {
+    navigate('/register');
   };
 
   return (
@@ -94,7 +94,9 @@ const Login = () => {
         {error && <span className="error">{error}</span>}
         <button type="submit">Login</button>
       </form>
-      <p className="register-link">New user? <a href="registration">Register here</a></p>
+      <p className="register-link">
+        New user? <span className="link" onClick={handleRegisterClick}>Register here</span>
+      </p>
     </div>
   );
 };
