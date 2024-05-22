@@ -6,30 +6,30 @@ const Home = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    fetchTasks(); // Fetch todos on component mount
+    fetchTodos(); // Fetch todos on component mount
   }, []);
 
-  const fetchTasks = async () => {
+  const fetchTodos = async () => {
     try {
-      const response = await fetch('http://localhost:8000/tasks', {
+      const response = await fetch(`https://w3villa-1mal.onrender.com/todos`, {
         method: 'GET',
         credentials: 'include', // Include credentials for authentication
       });
 
       if (!response.ok) {
-        throw new Error('Failed to fetch tasks');
+        throw new Error('Failed to fetch todos');
       }
 
       const data = await response.json();
       setTodos(data); // Set todos from the response
     } catch (error) {
-      console.error('Error fetching tasks:', error);
+      console.error('Error fetching todos:', error);
     }
   };
 
-  const addTasks = async (todoText) => {
+  const addTodo = async (todoText) => {
     try {
-        const response = await fetch('http://localhost:8000/saveTasks', {
+        const response = await fetch(`https://w3villa-1mal.onrender.com/saveTodo`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -39,21 +39,21 @@ const Home = () => {
         });
   
         if (!response.ok) {
-          throw new Error('Failed to save tasks');
+          throw new Error('Failed to save todo');
         }
         
-        await fetchTasks();
+        await fetchTodos();
         // Clear the input field after submission
       } catch (error) {
-        console.error('Error saving tasks:', error);
+        console.error('Error saving todo:', error);
       }
    
   };
 
 
-  const onUpdated = async (todoId, newText) => {
+  const onUpdate = async (todoId, newText) => {
     try {
-      const response = await fetch('http://localhost:8000/updateTasks', {
+      const response = await fetch(`https://w3villa-1mal.onrender.com/updateTodo`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -63,24 +63,24 @@ const Home = () => {
       });
   
       if (!response.ok) {
-        throw new Error('Failed to update tasks');
+        throw new Error('Failed to update todo');
       }
       
-      await fetchTasks();
+      await fetchTodos();
       
-        window.location.reload();
+     
       
     } catch (error) {
-      console.error('Error updating tasks:', error);
+      console.error('Error updating todo:', error);
     }
 
   };
 
   
 
-const onDeleted = async (todoId) => {
+const onDelete = async (todoId) => {
     try {
-      const response = await fetch('http://localhost:8000/deleteTasks', {
+      const response = await fetch(`https://w3villa-1mal.onrender.com/deleteTodo`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -90,13 +90,13 @@ const onDeleted = async (todoId) => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to delete tasks');
+        throw new Error('Failed to delete todo');
       }
       
-      await fetchTasks();
+      await fetchTodos();
      
     } catch (error) {
-      console.error('Error deleting tasks:', error);
+      console.error('Error deleting todo:', error);
     }
   };
 
@@ -107,11 +107,11 @@ const onDeleted = async (todoId) => {
       <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
         <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
         <div className="mb-4">
-          <TodoForm addTasks={addTasks} />
+          <TodoForm addTodo={addTodo} />
         </div>
         <div className="flex flex-wrap gap-y-3">
           {todos.map((todo, index) => (
-           <TodoItem key={index} todo={todo} onDelete={onDeleted} onUpdate={onUpdated} />
+           <TodoItem key={index} todo={todo} onDelete={onDelete} onUpdate={onUpdate} />
           ))}
         </div>
       </div>
