@@ -11,14 +11,14 @@ const TodoItem = ({ todo, onDelete, onUpdate }) => {
   const handleEdit = () => {
     console.log(isEditing);
     if (isEditing){
+      console.log(isEditing)
       onUpdate(todo.id, editedText);
+      window.location.reload();
       setIsEditing(!isEditing);
-      //Window.location.reload();
+      console.log(isEditing)
     } else {
       setIsEditing(!isEditing);
     }
-
-    
   };
 
   const handleChange = (e) => {
