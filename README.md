@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Task Manager Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+This project is a full-stack application developed as part of the W3villa Technologies Assignment. It allows users to register, log in, and manage tasks efficiently.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### Backend Development:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Built with Node.js and Express.js.
+- JWT used for user authentication and authorization.
+- API endpoints for user registration, login, and task management.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Database Setup:
 
-### `npm test`
+- MongoDB chosen for data storage.
+- Schema designed to store user information and tasks.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend Development:
 
-### `npm run build`
+- Developed using React.js with responsive design.
+- Features user registration, login forms, and task management pages.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Integration:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Frontend integrated with backend APIs for data manipulation.
+- User authentication ensures secure access to tasks.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Getting Started
+Follow these steps to set up and run the project on your local machine.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
+- [Node.js](https://nodejs.org/) installed on your machine
+- [MongoDB](https://www.mongodb.com/) installed on your machine
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
+1. Clone or download the project on your PC.
+2. Open a terminal window and navigate to the project directory.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Setting up MongoDB
 
-## Learn More
+- Verify that MongoDB is installed:
+  bash
+  mongod --version
+  
+- If MongoDB is not installed, follow the installation instructions on the [MongoDB website](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Connecting to MongoDB
+#### Mac
+- Start MongoDB service:
+  bash
+  brew services start mongodb-community@6.0
+  
+  Here, put the version on your pc
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Windows
+- Start MongoDB service:
+  bash
+  net start MongoDB
+  
 
-### Code Splitting
+### Creating Database and Collection
+1. Open MongoDB Compass.
+2. Click on Create Database.
+3. Enter w3villa as the Database Name.
+4. Enter users as the Collection Name.
+5. Click on Create Database.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+### Running the Project
+1. Open a terminal window and navigate to the backend directory.
+2. Install dependencies:
+   bash
+   npm install
+   
+3. Start the backend server:
+   bash
+   node server.js
+   
+4. Open a new terminal window and navigate to the project directory.
+5. Navigate to the frontend directory.
+6. Install dependencies:
+   bash
+   npm install
+   
+7. Start the frontend server:
+   bash
+   npm start
+   
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Now you should be able to access the project in your web browser.
 
-### Making a Progressive Web App
+## Dependencies
+- [express](https://www.npmjs.com/package/express)
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- [cors](https://www.npmjs.com/package/cors)
+- [cookie-parser](https://www.npmjs.com/package/cookie-parser)
+- [body-parser](https://www.npmjs.com/package/body-parser)
+- [mongoose](https://www.npmjs.com/package/mongoose)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Install these dependencies using the following command:
+bash
+npm install express bcryptjs jsonwebtoken cors cookie-parser body-parser mongoose
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Deployment Link: ``
